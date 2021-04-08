@@ -1,6 +1,5 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
-#include <math.h>
 
 int pyfasttextureutils_color_tuple_one_value_to_int(PyObject* tuple, int index, int* val_int) {
   PyObject* val_obj = PyTuple_GetItem(tuple, index);
