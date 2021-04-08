@@ -1,5 +1,6 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+#include <math.h>
 
 int pyfasttextureutils_color_tuple_one_value_to_int(PyObject* tuple, int index, int* val_int) {
   PyObject* val_obj = PyTuple_GetItem(tuple, index);
@@ -240,8 +241,8 @@ static PyObject* pyfasttextureutils_color_exchange(PyObject* self, PyObject* arg
       v += v_change;
       
       h %= 360;
-      s = max(0, min(100, s));
-      v = max(0, min(100, v));
+      s = fmax(0, fmin(100, s));
+      v = fmax(0, fmin(100, v));
       
       pyfasttextureutils_hsv_to_rgb(h, s, v, &r, &g, &b);
     }
